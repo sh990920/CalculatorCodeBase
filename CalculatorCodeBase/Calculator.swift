@@ -1,10 +1,3 @@
-//
-//  Calculator.swift
-//  CalculatorCodeBase
-//
-//  Created by 박승환 on 6/24/24.
-//
-
 import Foundation
 
 class Calculator {

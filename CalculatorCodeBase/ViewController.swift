@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  CalculatorCodeBase
-//
-//  Created by 박승환 on 6/21/24.
-//
-
 import UIKit
 import SnapKit
 
