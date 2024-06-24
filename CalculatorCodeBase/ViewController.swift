@@ -91,13 +91,11 @@ class ViewController: UIViewController {
     }
     
     @objc func didTapNumberButton(_ sender: UIButton) {
-        if let str = textLabel.text {
-            if let text = sender.titleLabel?.text {
-                if let num = Int(str), num == 0 {
-                    textLabel.text = text
-                } else {
-                    textLabel.text = str + text
-                }
+        if let str = textLabel.text, let text = sender.titleLabel?.text {
+            if let num = Int(str), num == 0 {
+                textLabel.text = text
+            } else {
+                textLabel.text = str + text
             }
         }
     }
@@ -108,10 +106,8 @@ class ViewController: UIViewController {
             case "AC":
                 textLabel.text = "0"
             case "=":
-                if let expression = textLabel.text {
-                    if let result = calculator.calculate(expression: expression) {
-                        textLabel.text = String(result)
-                    }
+                if let expression = textLabel.text, let result = calculator.calculate(expression: expression) {
+                    textLabel.text = String(result)
                 }
             default:
                 if let textLabelText = textLabel.text {
