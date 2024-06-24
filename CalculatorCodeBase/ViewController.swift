@@ -82,7 +82,7 @@ class ViewController: UIViewController {
             button.addTarget(self, action: #selector(didTapNumberButton), for: .touchUpInside)
         } else {
             button.backgroundColor = .orange
-            button.addTarget(self, action: #selector(didTapPlusButton), for: .touchUpInside)
+            button.addTarget(self, action: #selector(didTapOperateButton), for: .touchUpInside)
         }
         button.frame.size.height = 80
         button.frame.size.width = 80
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func didTapPlusButton(_ sender: UIButton) {
+    @objc func didTapOperateButton(_ sender: UIButton) {
         if let text = sender.titleLabel?.text {
             switch text {
             case "AC":
