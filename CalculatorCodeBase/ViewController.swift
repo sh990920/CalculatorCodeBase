@@ -36,10 +36,10 @@ class ViewController: UIViewController {
         verticalStackView.spacing = 10
         verticalStackView.distribution = .fillEqually
         view.addSubview(verticalStackView)
-        verticalStackView.snp.makeConstraints { make in
-            make.width.equalTo(350)
-            make.centerX.equalToSuperview()
-            make.top.equalTo(textLabel.snp.bottom).offset(60)
+        verticalStackView.snp.makeConstraints {
+            $0.width.equalTo(350)
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(textLabel.snp.bottom).offset(60)
         }
         for i in numbers {
             let horizontal = createHorizontalStackView(i)
