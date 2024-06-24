@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var textLabel = UILabel()
     var verticalStackView = UIStackView()
     let numbers = [["7", "8", "9", "+"], ["4", "5", "6", "-"], ["1", "2", "3", "x"], ["AC", "0", "=", "÷"]]
+    let calculator = Calculator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +109,7 @@ class ViewController: UIViewController {
                 textLabel.text = "0"
             case "=":
                 if let expression = textLabel.text {
-                    if let result = calculate(expression: expression) {
+                    if let result = calculator.calculate(expression: expression) {
                         textLabel.text = String(result)
                     }
                 }
@@ -117,31 +118,6 @@ class ViewController: UIViewController {
                     textLabel.text = textLabelText + text
                 }
             }
-        }
-    }
-    
-    func isValidExpression(_ expression: String) -> Bool {
-        let trimmedExpression = expression.replacingOccurrences(of: " ", with: "")
-        let pattern = "^[0-9]+([+\\-*/][0-9]+)*$"
-        if let _ = trimmedExpression.range(of: pattern, options: .regularExpression) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func calculate(expression: String) -> Int? {
-        let str = expression.replacingOccurrences(of: "x", with: "*").replacingOccurrences(of: "÷", with: "/")
-        guard isValidExpression(str) else {
-            print("Error : 수식이 올바르지 않습니다.")
-            return nil
-        }
-        let express = NSExpression(format: str)
-        if let result = express.expressionValue(with: nil, context: nil) as? NSNumber {
-            return result.intValue
-        } else {
-            print("Error : 수식이 잘못됨")
-            return nil
         }
     }
 }
