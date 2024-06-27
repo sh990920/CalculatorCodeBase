@@ -88,7 +88,7 @@ class ViewController: UIViewController {
             if let num = Int(str), num == 0 {
                 textLabel.text = text
             } else {
-                textLabel.text = str + text
+                textLabel.text = calculator.removeZero(str + text)
             }
         }
     }

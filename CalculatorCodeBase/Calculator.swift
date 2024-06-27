@@ -26,4 +26,30 @@ class Calculator {
             return nil
         }
     }
+    
+    func removeZero(_ str: String) -> String {
+        var result = ""
+        var currentNumber = ""
+        for char in str {
+            if char.isNumber {
+                currentNumber.append(char)
+            } else {
+                if !currentNumber.isEmpty {
+                    if let num = Int(currentNumber) {
+                        result.append(String(num))
+                        currentNumber = ""
+                    }
+                }
+                if "+-x÷".contains(char) {
+                    result.append(char)
+                }
+            }
+        }
+        if !currentNumber.isEmpty {
+            if let num = Int(currentNumber) {
+                result.append(String(num))
+            }
+        }
+        return result
+    }
 }
