@@ -84,7 +84,7 @@ class ViewController: UIViewController {
     }
     
     @objc func didTapNumberButton(_ sender: UIButton) {
-        if let str = textLabel.text, let text = sender.titleLabel?.text {
+        if let str = textLabel.text, let text = sender.currentTitle {
             if let num = Int(str), num == 0 {
                 textLabel.text = text
             } else {
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     }
     
     @objc func didTapOperateButton(_ sender: UIButton) {
-        if let text = sender.titleLabel?.text {
+        if let text = sender.currentTitle {
             switch text {
             case "AC":
                 textLabel.text = "0"
